@@ -10,7 +10,9 @@ const todos = [{
     text: 'First'
 },{
     _id: new ObjectID(),
-    text: 'second'
+    text: 'second',
+    competed: true,
+    completedAt: 232
 }];
 
 beforeEach((done) => {
@@ -140,3 +142,5 @@ describe('DELETE/todos/id', () => {
             .end(done)
     });
 });
+
+describe()
