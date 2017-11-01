@@ -10,6 +10,7 @@ const _ = require('lodash');
 let { mongoose } = require('./db/mongoose');
 let { Todo } = require('./model/todo');
 let { User } = require('./model/user');
+let {authenticate} = require('./middlewear/authenticate');
 
 let app = express();
 const port = process.env.PORT;
@@ -110,6 +111,10 @@ app.post('/users',(req, res) => {
     }).catch((e) => {
        res.status(400).send(e)
     })
+});
+
+app.get('/users/me', authenticate, (req, res) => {
+    res.send(req.user);
 });
 
 
